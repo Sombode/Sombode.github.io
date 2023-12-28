@@ -3,6 +3,7 @@
 body {
   --rotation: 0rad;
   font-family: 'Instrument Serif', serif;
+  overflow: hidden;
 }
 
 #largeGear {
@@ -27,7 +28,7 @@ body {
   transform: translateX(calc(273px - 50%)) translateY(327px) rotate(var(--rotation));
 }
 
-#handle:hover {
+#handleInteract:hover {
   filter: brightness(80%);
 }
 
