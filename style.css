@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap');
+
+body {
+  --rotation: 0rad;
+  font-family: 'Instrument Serif', serif;
+}
+
+#largeGear {
+  position: absolute;
+  left: 50%;
+  top: 120px;
+  transform: translateX(-50%) rotate(calc(-0.5 * var(--rotation)));
+}
+
+#smallGear {
+  position: absolute;
+  left: 50%;
+  top: 120px;
+  transform: translateX(calc(273px - 50%)) translateY(327px) rotate(var(--rotation));
+}
+
+#handle {
+  --grabOffset: 0rad;
+  position: absolute;
+  left: 50%;
+  top: 120px;
+  transform: translateX(calc(273px - 50%)) translateY(327px) rotate(var(--rotation));
+}
+
+#handle:hover {
+  filter: brightness(80%);
+}
+
+.nameBlock {
+  position: absolute;
+  left: 50%;
+  top: 395px;
+  width: 150px;
+  height: 100px;
+  background-color: white;
+  border: solid 2px black;
+  font-size: 96px;
+  text-align: center;
+  line-height: 100px;
+  user-select: none;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.rotatingBlock {
+  text-align: right;
+  transform: translateX(calc(-50% + 200px * cos(-0.5 * (var(--offset) + var(--rotation)))))
+    translateY(calc(-50% + 200px * sin(-0.5 * (var(--offset) + var(--rotation)))));
+}
