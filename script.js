@@ -18,7 +18,7 @@ gearHandleInteract.onmousedown = function(event) {
   const angle = Math.atan2(event.clientY - (rect.y + rect.height / 2), event.clientX - (rect.x + rect.width / 2));
   const grabOffset = parseFloat(getComputedStyle(gearHandle).getPropertyValue("--rotation")) - angle;
   gearTurn(event);
-  gearHandleInteract.style.filter = "brightness(80%)";
+  gearHandleInteract.style.filter = "brightness(50%)";
   document.addEventListener("mousemove", gearTurn);
   document.addEventListener("mouseup", releaseHandle);
 }

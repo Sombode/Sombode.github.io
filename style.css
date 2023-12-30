@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap');
 
 body {
+  background-color: rgb(255, 224, 96);
   --rotation: 0rad;
   font-family: 'Instrument Serif', serif;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 #largeGear {
@@ -29,7 +30,7 @@ body {
 }
 
 #handleInteract:hover {
-  filter: brightness(80%);
+  filter: brightness(70%);
 }
 
 .nameBlock {
@@ -38,8 +39,10 @@ body {
   top: 395px;
   width: 150px;
   height: 100px;
-  background-color: white;
-  border: solid 2px black;
+  background-color: black;
+  border: solid 4px black;
+  color: rgb(255, 224, 96);
+  padding: 0px 5px;
   font-size: 96px;
   text-align: center;
   line-height: 100px;
@@ -51,4 +54,24 @@ body {
   text-align: right;
   transform: translateX(calc(-50% + 200px * cos(-0.5 * (var(--offset) + var(--rotation)))))
     translateY(calc(-50% + 200px * sin(-0.5 * (var(--offset) + var(--rotation)))));
+}
+
+section {
+  background-color: black;
+}
+
+::-webkit-scrollbar {
+  background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+  border-color: black;
+  border-width: 2px;
+  border-style: solid none solid solid;
+  background: repeating-linear-gradient(135deg,
+  black 0px,
+  black 5px,
+  rgb(255, 224, 96) 5px,
+  rgb(255, 224, 96) 10px,
+  black 10px);
 }
