@@ -1,63 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap');
 
-body {
-  background-color: rgb(255, 224, 96);
-  --rotation: 0rad;
-  font-family: 'Instrument Serif', serif;
+html {
   overflow-x: hidden;
+  overflow-y: scroll;
+  --yellow: rgb(255, 224, 96);
 }
 
-#largeGear {
-  position: absolute;
-  left: 50%;
-  top: 120px;
-  transform: translateX(-50%) rotate(calc(-0.5 * var(--rotation)));
-}
-
-#smallGear {
-  position: absolute;
-  left: 50%;
-  top: 120px;
-  transform: translateX(calc(273px - 50%)) translateY(327px) rotate(var(--rotation));
-}
-
-#handle {
-  --grabOffset: 0rad;
-  position: absolute;
-  left: 50%;
-  top: 120px;
-  transform: translateX(calc(273px - 50%)) translateY(327px) rotate(var(--rotation));
-}
-
-#handleInteract:hover {
-  filter: brightness(70%);
-}
-
-.nameBlock {
-  position: absolute;
-  left: 50%;
-  top: 395px;
-  width: 150px;
-  height: 100px;
-  background-color: black;
-  border: solid 4px black;
-  color: rgb(255, 224, 96);
-  padding: 0px 5px;
-  font-size: 96px;
-  text-align: center;
-  line-height: 100px;
-  user-select: none;
-  transform: translateX(-50%) translateY(-50%);
-}
-
-.rotatingBlock {
-  text-align: right;
-  transform: translateX(calc(-50% + 200px * cos(-0.5 * (var(--offset) + var(--rotation)))))
-    translateY(calc(-50% + 200px * sin(-0.5 * (var(--offset) + var(--rotation)))));
-}
-
-section {
-  background-color: black;
+body {
+  margin: 0px;
+  background-color: var(--yellow);
+  font-family: 'Instrument Serif', serif;
+  --rotation: 0rad;
 }
 
 ::-webkit-scrollbar {
@@ -71,7 +24,65 @@ section {
   background: repeating-linear-gradient(135deg,
   black 0px,
   black 5px,
-  rgb(255, 224, 96) 5px,
-  rgb(255, 224, 96) 10px,
+  var(--yellow) 5px,
+  var(--yellow) 10px,
   black 10px);
+}
+
+#title {
+  height: 950px;
+}
+
+#title #largeGear {
+  position: absolute;
+  left: 50%;
+  top: 120px;
+  transform: translateX(-50%) rotate(calc(-0.5 * var(--rotation)));
+}
+  
+#title #smallGear {
+  position: absolute;
+  left: 50%;
+  top: 120px;
+  transform: translateX(calc(273px - 50%)) translateY(327px) rotate(var(--rotation));
+}
+
+#title #handle {
+  --grabOffset: 0rad;
+  position: absolute;
+  left: 50%;
+  top: 120px;
+  transform: translateX(calc(273px - 50%)) translateY(327px) rotate(var(--rotation));
+}
+
+#title #handleInteract:hover {
+  filter: brightness(70%);
+}
+
+#title .nameBlock {
+  position: absolute;
+  left: 50%;
+  top: 395px;
+  width: 150px;
+  height: 100px;
+  background-color: black;
+  border: solid 4px black;
+  color: var(--yellow);
+  padding: 0px 5px;
+  font-size: 96px;
+  text-align: center;
+  line-height: 100px;
+  user-select: none;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+#title .rotatingBlock {
+  text-align: right;
+  transform: translateX(calc(-50% + 200px * cos(-0.5 * (var(--offset) + var(--rotation)))))
+    translateY(calc(-50% + 200px * sin(-0.5 * (var(--offset) + var(--rotation)))));
+}
+
+#testSection {
+  height: 300px;
+  background-color: black;
 }
