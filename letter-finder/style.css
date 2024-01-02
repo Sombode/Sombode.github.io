@@ -1,0 +1,60 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: Courier New,Courier,monospace;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 100%;
+  margin-bottom: 0;
+  white-space: pre-wrap;
+}
+
+.target {
+  font-size: 12px;
+  line-height: 1.5;
+  display: table-row-group;
+  vertical-align: middle;
+  width: auto;
+  border-spacing: 0px;
+  border-collapse: separate;
+}
+
+button {
+  
+}
+
+#Text {
+  line-height: 50px;
+  margin-right: 10%;
+}
+
+label {
+  font-size: 12px;
+}
+
+span:hover:not(.found) {
+  background-color: #d3d3d3;
+  border-radius: 2px;
+}
+
+.found {
+  background-color: #ff0000;
+  border-radius: 2px;
+}
+
+th {
+  background-color: #d3d3d3;
+  text-align: center;
+  width: 2rem;
+  border: 1px solid #000;
+  margin: 0;
+  padding: 0.1rem 0.15rem;
+  text-indent: initial;
+}
+
+td {
+  border: 1px solid #000;
+  margin: 0;
+  padding: 0.1rem 0.15rem;
+  text-align: center;
+}

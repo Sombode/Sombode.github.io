@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Letter Finder</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="icon.png" rel="icon"/>
+</head>
+  
+<body>
+<div id="Stopwatch">0:00.00</div>
+<div id="Text">
+
+</div>
+
+<table class="target" id ="target">
+<thead><tr><th class="top"></th><th>~</th></tr></thead>
+<tbody><tr><th>Frequency</th><td>~</td></tr><tr><th>Replacement</th><td>~</td></tr></tbody>
+</table>
+
+<button id="finish" onclick="submit()">Submit</button>
+  
+<div>
+  <t>Options</t>
+  <label for="min">Word Count</label>
+  <input type="number" min="1" max="30" value="5" step="1" class="slider" id="min">
+  <label for="auto">Automatic Completion</label>
+  <input type="radio" id="auto" name="submittype" value="auto" onchange="subChange()">
+  <label for="auto">Manual Submission</label>
+  <input type="radio" id="man" name="submittype" value="man" onchange="subChange()" checked>
+</div>
+
+<div>
+  <t>Statistics
+  </t>
+  Best Time:
+  <span id="besttime">0:00.00</span>
+
+  Average Time:
+  <span id="avgtime">0:00.00</span>
+
+  Best Time/Char:
+  <span id="besttimec">0:00.00</span>
+
+  Average Time/Char:
+  <span id="avgtimec">0:00.00</span>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
