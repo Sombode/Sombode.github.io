@@ -1,0 +1,41 @@
+:root {
+    --viewX: 0;
+    --viewY: 0;
+    --gridSize: 50px;
+    --scale: calc(var(--gridSize) / 30);
+}
+
+html {
+    overflow: hidden;
+}
+
+#canvas {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-size: var(--gridSize) var(--gridSize);
+    background-image: radial-gradient(circle, #b9b9b9 calc(var(--gridSize) / 30), #fafafa var(--scale));
+    background-position: calc(var(--viewX) * 1px - var(--gridSize) / 2 + var(--scale)) calc(var(--viewY) * 1px - var(--gridSize) / 2 + var(--scale));
+    /* cursor: grab; */
+}
+
+.board {
+    position: absolute;
+    width: calc(var(--gridSize) * 3 - calc(var(--scale) * 2) + 1px);
+    height: calc(var(--gridSize) * 3 - calc(var(--scale) * 2) + 1px);
+    border: solid black calc(var(--scale) * 2);
+    border-radius: var(--scale);
+    transform: translate(calc(var(--x) * var(--gridSize) + var(--viewX) * 1px), calc(var(--y) * var(--gridSize) + var(--viewY) * 1px));
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cell {
+    border: solid black calc(var(--gridSize) / 30);
+    background-image: url("./icons/Triangle.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
