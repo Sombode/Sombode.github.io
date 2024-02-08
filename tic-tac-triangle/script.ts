@@ -4,7 +4,7 @@ let dragXOffset = 0, dragYOffset = 0;
 // TODO: Maybe switch background to repeated SVGs (better quality when scaling)
 // TODO: Fix the horrible grid layout (not at all consistent)
 
-document.onmousedown = function(event) {
+document.body.onmousedown = function(event) {
     function dragGrid(event) {
         document.documentElement.style.setProperty("--viewX", (dragXOffset + event.clientX).toString());
         document.documentElement.style.setProperty("--viewY", (dragYOffset + event.clientY).toString());
