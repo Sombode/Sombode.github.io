@@ -2,9 +2,10 @@ const symbols = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const inputBox = document.getElementById("inputBox");
 
 // Loading the word list
-let words = '';
+let wordList;
 fetch("english.json")
-  .then(response => words = response.text());
+  .then(response => response.json())
+  .then(json => (wordList = json));
 
 // Format the word as a standard pattern
 //  (substitute characters with those from the symbols string)
@@ -28,7 +29,7 @@ function patternify(word) {
 function regexify(pattern) {
   const patternMap = new Map();
   let symbolIndex = 1;
-  let regexExp = '"';
+  let regexExp = '';
   for(let i = 0; i < pattern.length; i++) {
     if(!patternMap.has(pattern[i])) {
       // Create a new capture group for a new character
@@ -47,8 +48,7 @@ function regexify(pattern) {
       regexExp += `\\${patternMap.get(pattern[i])}`;
     }
   }
-  regexExp += '"';
-  return regexExp;
+  return new RegExp(`(?<=")${regexExp}(?=")`, "g");
 }
 
 function submit() {
@@ -56,6 +56,13 @@ function submit() {
   console.log(input);
   const regexExp = regexify(input);
   console.log(regexExp);
+  if(wordList) {
+    const matchResult = JSON.stringify(wordList).match(regexExp);
+    matchResult.sort((a, b) => wordList[b] - wordList[a]);
+    matchResult.forEach(match => {
+      console.log(`${match}: ${wordList[match]}`);
+    });
+  }
 }
 
 document.onkeydown = function(event) {
