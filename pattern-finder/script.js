@@ -4,9 +4,7 @@ const outputTable = document.getElementById("table");
 
 // Loading the word list
 let wordList;
-fetch("english.json")
-  .then(response => response.json())
-  .then(json => (wordList = json));
+let lang = "en";
 
 // Format a word as a standard pattern
 //  (substitute characters with those from the symbols string)
@@ -74,6 +72,26 @@ function submit() {
   }
 }
 
+function languageChange(radio) {
+  if(lang == radio.value)
+    return;
+  wordList = null;
+  lang = radio.value;
+  switch(radio.value) {
+    case "en":
+      fetch("english.json")
+        .then(response => response.json())
+        .then(json => (wordList = json));
+      break;
+    case "es":
+      console.log("to spanish");
+      fetch("spanish.json")
+        .then(response => response.json())
+        .then(json => (wordList = json));
+      break;
+  }
+}
+
 document.onkeydown = function(event) {
   if(event.key == "Enter") {
     event.preventDefault();
@@ -81,3 +99,7 @@ document.onkeydown = function(event) {
       submit();
   }
 }
+
+fetch("english.json")
+  .then(response => response.json())
+  .then(json => (wordList = json));

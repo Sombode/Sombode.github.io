@@ -21,6 +21,20 @@ h1 {
   line-height: 100%;
 }
 
+#languageSelect {
+  display: inline-flex;
+  padding-bottom: 5rem;
+  user-select: none;
+}
+
+.radio {
+  display: inline-flex;
+}
+
+.radio input {
+  margin: 0 10px 0 30px;
+}
+
 #inputBox {
   z-index: 1;
   background-color: white;
