@@ -68,3 +68,24 @@ button:hover {
   background-color: white;
   color: black;
 }
+
+#patternText {
+  color: grey;
+  padding: 3rem 0 0 0;
+}
+
+table {
+  visibility: hidden;
+  border-collapse: collapse;
+}
+
+th {
+  padding: 6px 30px;
+  border-bottom: solid 2px black;
+}
+
+td {
+  text-align: center;
+  padding: 6px 0px;
+  border-bottom: solid 2px gainsboro;
+}

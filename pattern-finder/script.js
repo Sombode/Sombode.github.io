@@ -1,5 +1,6 @@
 const symbols = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const inputBox = document.getElementById("inputBox");
+const outputTable = document.getElementById("table");
 
 // Loading the word list
 let wordList;
@@ -7,9 +8,8 @@ fetch("english.json")
   .then(response => response.json())
   .then(json => (wordList = json));
 
-// Format the word as a standard pattern
+// Format a word as a standard pattern
 //  (substitute characters with those from the symbols string)
-//  this function isn't used by the code but i'm keeping it here cause it might be handy
 function patternify(word) {
   const patternMap = new Map();
   let symbolIndex = -1;
@@ -59,9 +59,18 @@ function submit() {
   if(wordList) {
     const matchResult = JSON.stringify(wordList).match(regexExp);
     matchResult.sort((a, b) => wordList[b] - wordList[a]);
+    document.getElementById("patternText").innerText = `pattern: ${patternify(input)}`;
+    const tableBody = outputTable.getElementsByTagName("tbody")[0];
+    tableBody.innerHTML = "";
     matchResult.forEach(match => {
+      var newRow = tableBody.insertRow();
+      var wordCell = newRow.insertCell();
+      var freqCell = newRow.insertCell();
+      wordCell.appendChild(document.createTextNode(match));
+      freqCell.appendChild(document.createTextNode(wordList[match]));
       console.log(`${match}: ${wordList[match]}`);
     });
+    outputTable.style.visibility = "visible";
   }
 }
 
