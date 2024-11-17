@@ -1,8 +1,0 @@
-{
-    "compilerOptions": {
-        "removeComments": true
-    },
-    "files": [
-        "script.ts"
-    ]
-}
